@@ -20,8 +20,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     LineChart lineChart;
-    int N = 100;
-    int M = 256;
+    int N = 256;
+    int M = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,18 +84,15 @@ public class MainActivity extends AppCompatActivity {
 
         lineChart.setBackgroundColor(Color.BLACK);
 
-        YAxis yAxis = lineChart.getAxisRight();
-        yAxis.setTextColor(Color.WHITE);
-
         List<Entry> entries = new ArrayList<>();
 
         for (int i = 0; i < N; i++){
-            float y = (float) Math.sin(2*Math.PI*i*N/M);
+            float y = (float) Math.sin(2*Math.PI*i*M/N);
             Entry entry = new Entry(i,y);
             entries.add(entry);
         }
 
-        LineDataSet lineDataSet = new LineDataSet(entries,"Frecuencia Media");
+        LineDataSet lineDataSet = new LineDataSet(entries,"");
         lineDataSet.setColor(Color.WHITE);
         lineDataSet.setLineWidth(2);
         lineDataSet.setDrawCircles(false);
